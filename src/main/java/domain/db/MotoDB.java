@@ -1,4 +1,6 @@
-package domain;
+package domain.db;
+
+import domain.model.MotoModel;
 
 import java.util.ArrayList;
 
@@ -7,10 +9,10 @@ public class MotoDB {
     private ArrayList<MotoModel> motos;
 
     public MotoDB(){
-        this.add(new MotoModel("Ktm", "RC 390", 2016, 45, 3000));
-        this.add(new MotoModel("Honda", "CBR 1000RR", 2014, 150, 5400));
-        this.add(new MotoModel("Yamaha", "R1", 2020, 180, 17000));
-        this.add(new MotoModel("Ducati", "Panigale", 2014, 205, 23000));
+    }
+
+    public ArrayList<MotoModel> getMotos() {
+        return motos;
     }
 
     public ArrayList<String> getMotoModelnamen(){
@@ -21,7 +23,7 @@ public class MotoDB {
         return motonamen;
     }
 
-    public void add(MotoModel motoModel){
+    public void addMoto(MotoModel motoModel){
         this.sequence++;
         motoModel.setId(sequence);
         motos.add(motoModel);

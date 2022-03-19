@@ -1,3 +1,5 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="domain.model.MotoModel" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="nl">
@@ -34,46 +36,21 @@
                 <th>Bouwjaar</th>
                 <th>Pk's</th>
                 <th>Prijs</th>
-                <th>Pas aan</th>
-                <th>Verwijder</th>
             </tr>
+            <% ArrayList<MotoModel> list = (ArrayList<MotoModel>) request.getAttribute("moto");
+            for (MotoModel moto : list){
+
+            %>
             <tr>
-                <td>KTM</td>
-                <td>RC 390</td>
-                <td>2016</td>
-                <td>45</td>
-                <td>3000</td>
-                <td><a href="#" class="aanpas">Pas aan</a></td>
-                <td><a href="#" class="x">X</a></td>
+                <td><%= moto.getMerk()%></td>
+                <td><%= moto.getModel()%></td>
+                <td><%= moto.getBouwjaar()%></td>
+                <td><%= moto.getPk()%></td>
+                <td><%= moto.getPrijs()%></td>
             </tr>
-            <tr>
-                <td>Honda</td>
-                <td>CBR 1000RR</td>
-                <td>2014</td>
-                <td>150</td>
-                <td>5400</td>
-                <td><a href="#" class="aanpas">Pas aan</a></td>
-                <td><a href="#" class="x">X</a></td>
-            </tr>
-            <tr>
-                <td>Yamaha</td>
-                <td>R1</td>
-                <td>2020</td>
-                <td>180</td>
-                <td>17000</td>
-                <td><a href="#" class="aanpas">Pas aan</a></td>
-                <td><a href="#" class="x">X</a></td>
-            </tr>
-            <tr>
-                <td>Ducati</td>
-                <td>Panigale</td>
-                <td>2014</td>
-                <td>205</td>
-                <td>23000</td>
-                <td><a href="#" class="aanpas">Pas aan</a></td>
-                <td><a href="#" class="x">X</a></td>
-            </tr>
+            <% }%>
         </table>
+        <p>Onze duurste moto is: <%= request.getAttribute("duurste")%></p>
     </article>
 </main>
 <footer>
